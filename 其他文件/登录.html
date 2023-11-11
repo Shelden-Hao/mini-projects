@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color:yellowgreen;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        height: 450px;
+        width: 400px;
+        background-color: rgb(135, 212, 235);
+        margin: 150px auto;
+    }
+    .box h3{
+        color: #fff;
+        font-size: 25px;
+        padding: 30px 0;
+        text-align: center;
+    }
+    .email,
+    .pw{
+        width: 340px;
+        height: 50px;
+        display: block;
+        background-color: rgb(135, 212, 235);
+        color: #fff;
+        margin: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #fff;
+    }
+    ::placeholder{
+        color: #fff;
+    }
+    
+    .login{
+        width: 340px;
+        height: 35px;
+        margin: 30px;
+        background-color: cadetblue;
+        border: none;
+        font-size: 16px;
+    }
+    p{
+        color: #fff;
+        margin: 30px;
+        font-size: 18px;
+    }
+    p a{
+        text-decoration: none;
+        color: cadetblue;
+    }
+</style>
+<body>
+    <div class="box">
+        <h3>Please Login</h3>
+        <input type="text" class="email" placeholder="Email">
+        <input type="text"  class="pw" placeholder="Password">
+        <button class="login">Login</button>
+        <p>Don't have an account?
+            <a href="#">Register</a>
+        </p>
+    </input>
+</body>
+</html>

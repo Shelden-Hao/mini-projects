@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  height: 400px;
+  width: 400px;
+  position: relative;
+  background-color: black;
+}
+
+.circle {
+
+  height: 40px;
+  width: 40px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: ball 1s alternate infinite ease;
+  /* ball是动画名称，用于定义关键帧动画（keyframe animation），`1s`是持续时间，alternate是方向，会在正向和反向之间交替播放，infinite动画无线循环，ease以缓入缓出的方式进行 */
+}
+
+@keyframes ball {
+
+  /* 0%~100%是从下往上 */
+  0% {
+    top: 400px;
+    height: 10px;
+    left: 0;
+    right: 0;
+    border-radius: 50px 50px 25px 25px;
+    /* 上左角、上右角、下右角和下左角。 */
+    transform: scaleX(1.5);
+    /* X轴，级宽度变为1.5倍 */
+  }
+
+  10% {
+    height: 20px;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    left: 0;
+    right: 0;
+  }
+}

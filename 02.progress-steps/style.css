@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #383838;
+}
+/* :root 选择器表示文档的根元素，通常是 <html> 元素。在这个选择器下定义的变量可以在整个文档中使用。里面是两个自定义属性，也称为CSS变量，CSS中直接使用变量名代表属性值 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1f1f1f;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* 以下这俩貌似没用 */
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: '';
+  /* 没有文字的盒子 */
+  background-color: var(--line-border-empty);
+  /* background-color: #383838; */
+  position: absolute;
+  /* 子绝父相 */
+  top: 50%;
+  /* 长横条上边缘平移到整个高度的50% */
+  left: 0;
+  /* 一个长横条 部分被遮挡 */
+  transform: translateY(-50%);
+  /* 通过移动Y轴使长横条的高度的中央和整个高度的中央对齐 */
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  /* 部分被遮挡 */
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #1f1f1f;
+  color: #e2e2e2;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  /* 继承父元素字体 */
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  /* 当按钮被按下时（活动状态），它会缩小为原来的 0.98 倍，即缩小了 2% */
+}
+
+.btn:focus {
+  outline: 0;
+}
+/* 当按钮（.btn 类）处于焦点状态时，移除其默认的轮廓效果（outline），在默认情况下，当按钮被聚焦（获取焦点）时，浏览器会添加一个轮廓线或边框样式来表示当前焦点所在的元素。这种轮廓线通常是由用户代理（浏览器）自动生成的。 */
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}

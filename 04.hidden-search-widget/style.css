@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* @import 是 CSS 中的一个规则，用于引入外部样式表文件。 url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap') 指定了要引入的外部样式表文件的 URL。在这里，它是 Google Fonts 提供的 "Roboto" 字体的 URL 地址。 family=Roboto 参数指定了要引入的字体系列是 "Roboto" 。 wght@400;700 参数指定了要引入的字体的权重（字重）。在这里，400 表示正常（Regular）字重，700 表示粗体（Bold）字重。 display=swap 参数指定了字体加载的方式。"swap" 表示在字体加载完成前使用默认字体，并在字体加载完成后进行替换，以提高页面显示的速度和用户体验。 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+  /* 从左到右的渐变背景 */
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  /* 容器中的内容超出容器高度时，超出部分将被隐藏。 */
+  margin: 0;
+}
+
+.search {
+  position: relative;
+  height: 50px;
+}
+
+.search .input {
+  background-color: #fff;
+  border: 0;
+  /* 清楚默认外边框 */
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 50px;
+  transition: width 0.3s ease;
+}
+
+.btn {
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease;
+  /* ease 是过渡的速度曲线，表示过渡效果将以默认的缓入缓出方式进行。 */
+}
+
+.btn:focus,
+.input:focus {
+  outline: none;
+  /* 用于设置元素的轮廓样式。在这里，将其设置为 none 表示取消元素聚焦状态下的轮廓样式。 */
+}
+
+.search.active .input {
+  width: 200px;
+}
+
+/* 这里注意前两个类选择器是连起来的（下面同理）选择class="search active" 即同时含有。分开则选择具有 search 类的父元素中的具有 active 类的子元素中的 .input 元素。*/
+
+.search.active .btn {
+  transform: translateX(198px);
+  /* 文本框变宽的同时 需要将按钮移到最右侧 */
+}
